@@ -1,22 +1,54 @@
+---
+import Profile from "../components/Profile.astro";
+---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro Basics</title>
+  </head>
+  <body>
+    <div class="max-w-6xl mx-auto">
+      <div
+        class="relative grid gap-4 p-0 lg:p-4 md:grid-cols-5 lg:grid-cols-4 top-20 md:top-0 text-base lg:text-lg"
+      >
+        {/* Sidebar */}
+        <aside
+          class="md:col-span-1 top-4 p-2 hidden md:block order-2 md:order-1 space-y-4"
+        >
+          <Profile />
+          <!-- <CategoryCard /> -->
+          <!-- <TagCard /> -->
+          <div class="grid gap-8 w-full sticky top-8">
+            <!-- <ToolCard /> -->
+            <!-- <TocCard /> -->
+          </div>
+        </aside>
+
+        {/* Main Content */}
+        <main
+          id="swup"
+          class="col-span-3 md:col-span-4 lg:col-span-3 p-2 order-1 md:order-2"
+        >
+          <div class="grid gap-8 fade-in-up">
+            <slot />
+            <!-- <Footer /> -->
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
 </style>

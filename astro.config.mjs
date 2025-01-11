@@ -1,18 +1,27 @@
+import mdx from "@astrojs/mdx";
+
+import partytown from "@astrojs/partytown";
+import sitemap from "@astrojs/sitemap";
+import tailwind from "@astrojs/tailwind";
+import vercel from "@astrojs/vercel";
+
+import swup from "@swup/astro";
+import icon from "astro-icon";
+
+import robotsTxt from "astro-robots-txt";
 // @ts-check
-import { defineConfig } from 'astro/config';
-
-import partytown from '@astrojs/partytown';
-import icon from 'astro-icon';
-import tailwind from '@astrojs/tailwind';
-import vercel from '@astrojs/vercel';
-
-import mdx from '@astrojs/mdx';
-import sitemap from '@astrojs/sitemap';
-
-import robotsTxt from 'astro-robots-txt';
+import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [partytown(), icon(), tailwind(), mdx(), sitemap(), robotsTxt()],
-  adapter: vercel()
+  integrations: [
+    partytown(),
+    icon(),
+    tailwind(),
+    mdx(),
+    sitemap(),
+    robotsTxt(),
+    swup(),
+  ],
+  adapter: vercel(),
 });
