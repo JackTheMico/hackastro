@@ -1,4 +1,5 @@
 alias c := check
+alias cl := changelog
 alias b := build
 alias f := fix
 alias d := dev
@@ -12,6 +13,9 @@ build:
 
 preview:
   pnpm run preview
+
+changelog:
+  pnpm run changelog
 
 check-astro:
   pnpm run astro check
