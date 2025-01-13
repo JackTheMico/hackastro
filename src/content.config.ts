@@ -5,6 +5,8 @@ const blogCollection = defineCollection({
     title: z.string(),
     author: z.string(),
     description: z.string().optional(),
+    categories: z.enum(["tech", "life"]),
+    tags: z.array(z.string()),
     // Transform string to Date object
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
