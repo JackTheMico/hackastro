@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "paraglide-js compile --project ./project.inlang --outdir ./src/paraglide && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "check": "pnpm run check:astro && pnpm run check:eslint && pnpm run check:prettier",
@@ -20,7 +20,8 @@
     "fix:eslint": "eslint --fix .",
     "fix:prettier": "prettier -w .",
     "prepare": "husky",
-    "changelog": "conventional-changelog -p gitmoji-config -i CHANGELOG.md -s -r 0"
+    "changelog": "conventional-changelog -p gitmoji-config -i CHANGELOG.md -s -r 0",
+    "postinstall": "paraglide-js compile --project ./project.inlang --outdir ./src/paraglide"
   },
   "lint-staged": {
     "*.{ts,tsx,js}": [
@@ -39,6 +40,7 @@
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/tailwind": "^5.1.4",
     "@astrojs/vercel": "^8.0.1",
+    "@inlang/paraglide-astro": "^0.3.5",
     "@swup/astro": "^1.5.0",
     "astro": "^5.1.4",
     "astro-embed": "^0.9.0",
@@ -53,6 +55,7 @@
     "@iconify-json/lucide": "^1.2.22",
     "@iconify-json/material-symbols": "^1.2.12",
     "@iconify-json/ri": "^1.2.5",
+    "@inlang/paraglide-js": "1.11.8",
     "astro-eslint-parser": "^1.1.0",
     "commitlint-config-gitmoji": "^2.3.1",
     "commitlint-plugin-gitmoji": "^2.2.6",
