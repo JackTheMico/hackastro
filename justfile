@@ -1,5 +1,6 @@
 alias c := check
 alias cl := changelog
+alias wc := watch-check
 alias b := build
 alias f := fix
 alias d := dev
@@ -35,3 +36,6 @@ fix-prettier:
 fix: fix-eslint fix-prettier
 
 check: check-astro check-eslint check-prettier
+
+watch-check:
+  watchexec -e js,css,html,astro,ts just check
