@@ -51,6 +51,7 @@
     "@commitlint/cli": "^19.6.1",
     "@eslint/js": "^9.18.0",
     "@iconify-json/material-symbols": "^1.2.12",
+    "@iconify-json/ri": "^1.2.5",
     "astro-eslint-parser": "^1.1.0",
     "commitlint-config-gitmoji": "^2.3.1",
     "commitlint-plugin-gitmoji": "^2.2.6",

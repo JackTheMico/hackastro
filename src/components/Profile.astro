@@ -8,20 +8,16 @@ import type { MenuItem } from "../types.ts";
 <div
   class="flex-col gap-4 mb-8 w-full sticky md:sticky lg:relative bg-base-100 p-4 shadow-xl rounded-xl"
 >
-  <div class="avatar">
-    <div
-      class="ring-primary ring-offset-base-100 w-24 rounded-full ring ring-offset-2"
-    >
-      <Image
-        class="mask mask-circle"
-        format="webp"
-        width={300}
-        height={300}
-        src={USER_AVATAR}
-        alt="Profile"
-        loading="eager"
-      />
-    </div>
+  <div class="avatar p-4 hover:scale-105 transition-transform">
+    <Image
+      class="mask mask-circle"
+      format="webp"
+      width={300}
+      height={300}
+      src={USER_AVATAR}
+      alt="Profile"
+      loading="eager"
+    />
   </div>
   <ul
     class="menu bg-base-100 w-full m-0 flex flex-col items-center lg:items-start"
