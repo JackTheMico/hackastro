@@ -1,8 +1,14 @@
 export interface MenuItem {
-  id?: string;
-  text: string;
+  id: string;
   svg: string;
   href?: string;
   target?: string;
-  subItems?: MenuItem[];
+  subItems?: SubItem[];
+}
+
+export interface SubItem {
+  id: string;
+  href: string;
+  svg: string;
+  target?: string;
 }

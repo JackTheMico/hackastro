@@ -3,6 +3,8 @@ import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 import { USER_AVATAR, menuItems, socialIcons } from "../consts";
 import type { MenuItem } from "../types.ts";
+import type { SubItem } from "../types.ts";
+import * as m from "../paraglide/messages.js";
 ---
 
 <div
@@ -33,11 +35,11 @@ import type { MenuItem } from "../types.ts";
                   class="transition-transform duration-200 group-hover:scale-110"
                 />
                 <span class="hidden lg:inline ml-2 transition-transform duration-200 group-hover:translate-x-1">
-                  {item.text}
+                  {m[item.id as keyof typeof m]()}
                 </span>
               </summary>
               <ul class="w-full bg-base-100 rounded-lg">
-                {item.subItems.map((subItem) => (
+                {item.subItems.map((subItem: SubItem) => (
                   <li class="relative group">
                     <a
                       tabindex="0"
@@ -45,14 +47,14 @@ import type { MenuItem } from "../types.ts";
                       id={`header-${subItem.id}`}
                       href={subItem.href}
                       target={subItem.target || "_self"}
-                      aria-label={subItem.text}
+                      aria-label={m[subItem.id as keyof typeof m]()}
                     >
                       <Icon
                         name={subItem.svg}
                         class="transition-transform duration-200 group-hover:scale-110"
                       />
                       <span class="hidden lg:inline ml-2 transition-transform duration-200 group-hover:translate-x-1">
-                        {subItem.text}
+                        {m[subItem.id as keyof typeof m]()}
                       </span>
                     </a>
                   </li>
@@ -67,14 +69,14 @@ import type { MenuItem } from "../types.ts";
               title={item.id}
               href={item.href}
               target={item.target || "_self"}
-              aria-label={item.text}
+              aria-label={m[item.id as keyof typeof m]()}
             >
               <Icon
                 name={item.svg}
                 class="transition-transform duration-200 group-hover:scale-110"
               />
               <span class="hidden lg:inline ml-2 transition-transform duration-200 group-hover:translate-x-1">
-                {item.text}
+                {m[item.id as keyof typeof m]()}
               </span>
             </a>
           )}

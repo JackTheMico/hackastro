@@ -4,42 +4,36 @@ export const USER_AVATAR = "/profile.webp";
 export const menuItems = [
   {
     id: "home",
-    text: "Home",
     href: "/",
     svg: "material-symbols:home-outline-rounded",
     target: "_self",
   }, // Home page
   {
     id: "about",
-    text: "About",
     href: "/about",
     svg: "material-symbols:info-outline-rounded",
     target: "_self",
   }, // About page
   {
     id: "blog",
-    text: "Blogs",
     href: "/blog",
     svg: "material-symbols:book-2-outline-rounded",
     target: "_self",
     subItems: [
       {
-        id: "all",
-        text: "All blogs",
+        id: "allblog",
         href: "/blog",
         svg: "material-symbols:ink-pen-outline-rounded",
         target: "_self",
       }, // All blog
       {
-        id: "tech",
-        text: "Tech blogs",
+        id: "techblog",
         href: "/blog/categories/tech",
         svg: "material-symbols:deployed-code-outline",
         target: "_self",
       }, // Technology category
       {
-        id: "life",
-        text: "Life blogs",
+        id: "lifeblog",
         href: "/blog/categories/life",
         svg: "material-symbols:earthquake-rounded",
         target: "_self",
@@ -48,7 +42,7 @@ export const menuItems = [
   }, // Blog page with sub-items
   {
     id: "project",
-    text: "Project",
+    // text: "Project",
     href: "/project",
     svg: "material-symbols:code-blocks-outline",
     target: "_self",
@@ -62,7 +56,7 @@ export const menuItems = [
   // }, // Friends page
   {
     id: "contact",
-    text: "Contact",
+    // text: "Contact",
     href: "mailto:dlwxxxdlw@gmail.com", // Contact email
     target: "_blank", // Open in a new tab
     svg: "material-symbols:attach-email-outline-rounded",
