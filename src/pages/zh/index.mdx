@@ -1,0 +1,16 @@
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BaseCard from "../../components/BaseCard.astro";
+
+<BaseLayout>
+  <BaseCard>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="p-2">### 你好，朋友 👋 ##### 欢迎来到我的个人网站</div>
+      <div>
+        ### 职业状态🖥️
+        <div class="badge badge-error gap-2">失业中😿</div>
+        <div class="badge badge-warning gap-2">于2025年1月7日被裁</div>
+        <div class="badge badge-success gap-2">正在找工作中 🚀</div>
+      </div>
+    </div>
+  </BaseCard>
+</BaseLayout>

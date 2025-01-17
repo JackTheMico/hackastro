@@ -11,9 +11,11 @@ import icon from "astro-icon";
 
 import robotsTxt from "astro-robots-txt";
 import { defineConfig } from "astro/config";
+import { USER_SITE } from "./src/consts.ts";
 
 // https://astro.build/config
 export default defineConfig({
+  site: USER_SITE,
   i18n: {
     defaultLocale: "zh", // the default locale
     locales: ["en", "zh"], // the locales you want to support

@@ -12,7 +12,7 @@ alias p := preview
 dev:
   pnpm dev
 
-build:
+build: check
   pnpm run build
 
 preview:
@@ -30,15 +30,21 @@ check-eslint:
 check-prettier:
   pnpm run check:prettier
 
+check-stylelint:
+  pnpm run check:stylelint
+
 fix-eslint:
   pnpm run fix:eslint
 
 fix-prettier:
   pnpm run fix:prettier
 
-fix: fix-eslint fix-prettier
+fix-stylelint:
+  pnpm run fix:stylelint
 
-check: check-astro check-eslint check-prettier
+fix: fix-eslint fix-stylelint fix-prettier
+
+check: check-astro check-eslint check-stylelint check-prettier
 
 fix-check: fix check
 

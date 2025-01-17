@@ -7,5 +7,12 @@
   "contact": "联系",
   "allblog": "全部博客",
   "techblog": "技术博客",
-  "lifeblog": "生活博客"
+  "lifeblog": "生活博客",
+  "wordCount": "字",
+  "readTime": "分钟",
+  "noCategory": "未分类",
+  "noTag": "无标签",
+  "share": "分享",
+  "shareCard": "分享此文章",
+  "close": "❌"
 }

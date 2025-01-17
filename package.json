@@ -12,13 +12,13 @@
     "build": "paraglide-js compile --project ./project.inlang --outdir ./src/paraglide && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "check": "pnpm run check:astro && pnpm run check:eslint && pnpm run check:prettier",
     "check:astro": "astro check",
     "check:eslint": "eslint .",
     "check:prettier": "prettier --check .",
-    "fix": "npm run fix:eslint && npm run fix:prettier",
+    "check:stylelint": "stylelint --config ./stylelint.config.js ./src/styles",
     "fix:eslint": "eslint --fix .",
     "fix:prettier": "prettier -w .",
+    "fix:stylelint": "stylelint --config ./stylelint.config.js --fix ./src/styles",
     "prepare": "husky",
     "changelog": "conventional-changelog -p gitmoji-config -i CHANGELOG.md -s -r 0",
     "postinstall": "paraglide-js compile --project ./project.inlang --outdir ./src/paraglide"
@@ -28,7 +28,7 @@
       "eslint -c eslint.config.js"
     ],
     "*.{css,less,scss}": [
-      "stylelint   --fix"
+      "stylelint --config ./stylelint.config.js ./src/styles --fix"
     ],
     "*.{ts,tsx,json,js,css,less,scss,md}": [
       "prettier --write"
@@ -47,6 +47,7 @@
     "astro-icon": "^1.1.5",
     "astro-robots-txt": "^1.0.0",
     "astro-seo": "^0.8.4",
+    "dayjs": "^1.11.13",
     "tailwindcss": "^3.4.17"
   },
   "devDependencies": {
@@ -69,10 +70,16 @@
     "gitmoji-cli": "^9.5.0",
     "husky": "^9.1.7",
     "lint-staged": "^15.3.0",
+    "postcss-html": "^1.8.0",
     "prettier": "^3.4.2",
     "prettier-plugin-astro": "^0.14.1",
+    "sass": "^1.83.4",
     "stylelint": "^16.12.0",
+    "stylelint-config-html": "^1.1.0",
+    "stylelint-config-sass-guidelines": "^12.1.0",
     "stylelint-config-standard": "^36.0.1",
+    "stylelint-config-tailwindcss": "^0.0.7",
+    "stylelint-scss": "^6.10.1",
     "typescript": "^5.7.3",
     "typescript-eslint": "^8.19.1",
     "{cli,config-conventional}": "link:@commitlint/{cli,config-conventional}"

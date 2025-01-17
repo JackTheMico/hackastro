@@ -7,5 +7,12 @@
   "contact": "Contact",
   "allblog": "All Blogs",
   "techblog": "Tech Blogs",
-  "lifeblog": "Life Blogs"
+  "lifeblog": "Life Blogs",
+  "wordCount": "Words",
+  "readTime": "Minutes",
+  "noCategory": "No Category",
+  "noTag": "No Tag",
+  "share": "Share",
+  "shareCard": "Share this article",
+  "close": "Close"
 }

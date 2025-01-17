@@ -90,6 +90,8 @@ export default [
       ".github",
       "types.generated.d.ts",
       ".astro",
+      ".vercel",
+      "./src/paraglide",
     ],
   },
 ];

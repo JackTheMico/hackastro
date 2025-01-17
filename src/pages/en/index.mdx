@@ -1,0 +1,18 @@
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BaseCard from "../../components/BaseCard.astro";
+
+<BaseLayout>
+  <BaseCard>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="p-2">### Hi, friend 👋 ##### Welcome to my personal site</div>
+      <div>
+        ### Career Status 🖥️
+        <div class="badge badge-error gap-2">Unemployed 😿</div>
+        <div class="badge badge-warning gap-2">
+          Laid off on January 7th, 2025
+        </div>
+        <div class="badge badge-success gap-2">Looking for a job 🚀</div>
+      </div>
+    </div>
+  </BaseCard>
+</BaseLayout>

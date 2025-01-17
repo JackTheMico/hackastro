@@ -12,3 +12,17 @@ export interface SubItem {
   svg: string;
   target?: string;
 }
+
+export interface CardInfo {
+  title: string;
+  image?: string;
+  pubDate?: Date;
+  badge?: string;
+  categories?: string[];
+  tags?: string[];
+  word?: string;
+  time?: string;
+  isBlog: boolean;
+  comment?: boolean;
+  url?: string;
+}
