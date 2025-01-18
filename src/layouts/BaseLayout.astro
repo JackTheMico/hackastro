@@ -1,46 +1,17 @@
 ---
 import Profile from "../components/Profile.astro";
 import BaseHead from "../components/BaseHead.astro";
-import {
-  SITE_TAB,
-  SITE_TITLE,
-  SITE_DESCRIPTION,
-  DAISYUI_THEME,
-} from "../consts";
+import FloatTool from "../components/FloatTool.astro";
+import { SITE_TAB, SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 const { title, image } = Astro.props;
 ---
 
 <!doctype html>
-<html
-  lang={Astro.currentLocale}
-  class="bg-base-300"
-  data-theme="dracula"
-  data-theme-type="dark"
->
+<html lang={Astro.currentLocale} class="bg-base-300">
   <head>
     <meta charset="UTF-8" />
     <title>{`${title} - ${SITE_TAB}`}</title>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} image={image} />
-    <script define:vars={{ DAISYUI_THEME }} is:inline>
-      function initTheme() {
-        const storedTheme =
-          localStorage.getItem("theme") ||
-          (window.matchMedia("(prefers-color-scheme: dark)").matches
-            ? "light"
-            : "dark");
-        const theme =
-          storedTheme === "light" ? DAISYUI_THEME.light : DAISYUI_THEME.dark;
-
-        if (!["light", "dark"].includes(storedTheme)) {
-          localStorage.setItem("theme", "light");
-        }
-
-        document.documentElement.setAttribute("data-theme-type", storedTheme);
-        document.documentElement.setAttribute("data-theme", theme);
-      }
-
-      initTheme();
-    </script>
   </head>
   <body>
     <div class="max-w-6xl mx-auto">
@@ -67,6 +38,7 @@ const { title, image } = Astro.props;
         >
           <div class="grid gap-8 fade-in-up">
             <slot />
+            <FloatTool />
             <!-- <Footer /> -->
           </div>
         </main>

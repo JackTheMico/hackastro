@@ -12,6 +12,7 @@ import icon from "astro-icon";
 import robotsTxt from "astro-robots-txt";
 import { defineConfig } from "astro/config";
 import { USER_SITE } from "./src/consts.ts";
+import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs";
 
 // https://astro.build/config
 export default defineConfig({
@@ -19,6 +20,9 @@ export default defineConfig({
   i18n: {
     defaultLocale: "zh", // the default locale
     locales: ["en", "zh"], // the locales you want to support
+  },
+  markdown: {
+    remarkPlugins: [remarkReadingTime],
   },
   integrations: [
     partytown(),

@@ -5,10 +5,6 @@ export const SITE_DESCRIPTION = "A blog template";
 export const DATE_FORMAT = "ddd MMM DD YYYY";
 
 // Theme settings
-export const DAISYUI_THEME = {
-  light: "winter",
-  dark: "dracula",
-};
 export const CODE_THEME = {
   light: "github-light",
   dark: "github-dark",

@@ -14,7 +14,7 @@ const {
   image,
   pubDate,
   badge,
-  categories = [],
+  category,
   tags = [],
   word,
   time,
@@ -84,24 +84,17 @@ const displayDate = pubDate ? dayjs(pubDate).format(DATE_FORMAT) : "";
 
           <div class="mt-4">
             <div class="flex flex-wrap items-center gap-2">
-              {categories.map((category) => (
-                <a
-                  href={`/blog/categories/${category}`}
-                  class="btn btn-xs btn-category"
-                >
-                  {category}
-                </a>
-              ))}
+              <a
+                href={`/blog/categories/${category}`}
+                class="btn btn-xs btn-category"
+              >
+                {category}
+              </a>
               {tags.map((tag) => (
                 <a href={`/blog/tags/${tag}`} class="btn btn-xs btn-tag">
                   {tag}
                 </a>
               ))}
-              {categories.length === 0 && (
-                <span class="btn btn-xs btn-disabled opacity-50">
-                  {m.noCategory()}
-                </span>
-              )}
               {tags.length === 0 && (
                 <span class="btn btn-xs btn-disabled opacity-50">
                   {m.noTag()}
@@ -125,7 +118,7 @@ const displayDate = pubDate ? dayjs(pubDate).format(DATE_FORMAT) : "";
           url={url}
           pubDate={displayDate}
           badge={badge}
-          categories={categories}
+          category={category}
           tags={tags}
           word={word}
           time={time}

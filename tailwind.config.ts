@@ -7,6 +7,15 @@ export default {
   },
   plugins: [daisyui],
   daisyui: {
-    themes: ["winter", "dracula", "cupcake"],
+    themes: [
+      {
+        light: {
+          ...require("daisyui/src/theming/themes")["valentine"],
+        },
+        dark: {
+          ...require("daisyui/src/theming/themes")["dracula"],
+        },
+      },
+    ],
   },
 };

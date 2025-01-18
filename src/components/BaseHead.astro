@@ -3,6 +3,7 @@
 // all pages through the use of the <BaseHead /> component.
 import "../styles/global.scss";
 import "../styles/waline.scss";
+import { ThemeScript } from "astro-theme-toggle";
 interface Props {
   title: string;
   description: string;
@@ -19,6 +20,7 @@ const { title, description, image } = Astro.props;
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="icon" type="image" href="/favicon.svg" />
 <meta name="generator" content={Astro.generator} />
+<ThemeScript />
 
 <!-- Page Specific Metadata -->
 <title>{title}</title>

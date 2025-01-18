@@ -18,7 +18,7 @@ export interface CardInfo {
   image?: string;
   pubDate?: Date;
   badge?: string;
-  categories?: string[];
+  category: string;
   tags?: string[];
   word?: string;
   time?: string;

@@ -2,7 +2,6 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import BaseCard from "../../../components/BaseCard.astro";
-// import { render } from "astro:content";
 
 export async function getStaticPaths() {
   const blogs = await getCollection("blog");
@@ -20,7 +19,7 @@ const { lang } = Astro.params;
 const blog = Astro.props;
 const pubDate = blog.data.pubDate.toLocaleString(lang);
 
-const { Content, remarkPluginFrontmatter } = await blog.render();
+const { Content } = await blog.render();
 ---
 
 <BaseLayout>
@@ -32,8 +31,6 @@ const { Content, remarkPluginFrontmatter } = await blog.render();
     tags={blog.data.tags}
     pubDate={pubDate}
     heroImage={blog.data.heroImage}
-    word={remarkPluginFrontmatter.totalCharCount}
-    time={remarkPluginFrontmatter.readingTime}
     isBlog="true"
   >
     <Content />
