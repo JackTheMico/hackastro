@@ -1,0 +1,24 @@
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BaseCard from "../../components/BaseCard.astro";
+
+<BaseLayout>
+  <BaseCard>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+      <div class="p-2">
+        # 关于😄我
+      </div>
+      <div>
+        ## 标签 🔖
+        <div class="grid grid-cols-4 md:grid-cols-4 item-center gap-2">
+          <div class="badge badge-primary gap-1">**Backend**</div>
+          <div class="badge badge-secondary gap-1">
+            Pythoner
+          </div>
+          <div class="badge badge-accent gap-1">**Devops**</div>
+          <div class="badge badge-warning gap-1">English</div>
+          <div class="badge badge-outline gap-1">Neovim</div>
+        </div>
+      </div>
+    </div>
+  </BaseCard>
+</BaseLayout>

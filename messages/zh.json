@@ -4,7 +4,7 @@
   "about": "关于",
   "blog": "博客",
   "project": "项目",
-  "contact": "联系",
+  "downloadcv": "下载简历",
   "allblog": "全部博客",
   "techblog": "技术博客",
   "lifeblog": "生活博客",
@@ -14,5 +14,7 @@
   "noTag": "无标签",
   "share": "分享",
   "shareCard": "分享此文章",
-  "close": "❌"
+  "close": "❌",
+  "prevPage": "上一页",
+  "nextPage": "下一页"
 }

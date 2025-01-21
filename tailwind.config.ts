@@ -7,15 +7,6 @@ export default {
   },
   plugins: [daisyui],
   daisyui: {
-    themes: [
-      {
-        light: {
-          ...require("daisyui/src/theming/themes")["valentine"],
-        },
-        dark: {
-          ...require("daisyui/src/theming/themes")["dracula"],
-        },
-      },
-    ],
+    themes: ["valentine", "dracula"],
   },
 };

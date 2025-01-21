@@ -4,15 +4,16 @@
   "about": "About",
   "blog": "Blog",
   "project": "Project",
-  "contact": "Contact",
+  "downloadcv": "Resume",
   "allblog": "All Blogs",
   "techblog": "Tech Blogs",
   "lifeblog": "Life Blogs",
   "wordCount": "Words",
   "readTime": "Minutes",
-  "noCategory": "No Category",
   "noTag": "No Tag",
   "share": "Share",
   "shareCard": "Share this article",
-  "close": "Close"
+  "close": "Close",
+  "prevPage": "Prev",
+  "nextPage": "Next"
 }

@@ -43,9 +43,6 @@ importers:
       astro-seo:
         specifier: ^0.8.4
         version: 0.8.4(prettier-plugin-astro@0.14.1)(prettier@3.4.2)(typescript@5.7.3)
-      astro-theme-toggle:
-        specifier: ^0.5.0
-        version: 0.5.0
       dayjs:
         specifier: ^1.11.13
         version: 1.11.13
@@ -71,6 +68,9 @@ importers:
       "@iconify-json/material-symbols":
         specifier: ^1.2.12
         version: 1.2.12
+      "@iconify-json/mdi":
+        specifier: ^1.2.3
+        version: 1.2.3
       "@iconify-json/ri":
         specifier: ^1.2.5
         version: 1.2.5
@@ -2056,6 +2056,12 @@ packages:
         integrity: sha512-2p2T13Kccy7R2HNbdiVsIcHxjp4s9a+iKlfbtt29hldG1pVNaPIlMALNA9bjdEwPjwsVFe06INCbjCRc68JysQ==,
       }
 
+  "@iconify-json/mdi@1.2.3":
+    resolution:
+      {
+        integrity: sha512-O3cLwbDOK7NNDf2ihaQOH5F9JglnulNDFV7WprU2dSoZu3h3cWH//h74uQAB87brHmvFVxIOkuBX2sZSzYhScg==,
+      }
+
   "@iconify-json/ri@1.2.5":
     resolution:
       {
@@ -3978,12 +3984,6 @@ packages:
     resolution:
       {
         integrity: sha512-Ou1vzQSXAxa0K8rtNtXNvSpYqOGEgMhh0immMxJeXmbVZac3UKCNWAoXWyOQDFYsZvBugCRSg0N1phBqPMVgCw==,
-      }
-
-  astro-theme-toggle@0.5.0:
-    resolution:
-      {
-        integrity: sha512-AwON99k6kLAEkW0gbdpIjB/vpoZvibi9I/wE/bCTKicnNJwP3RR6gsh80QdfH22JRvJC2DHQF/ErtKZyfv9ycA==,
       }
 
   astro@5.1.4:
@@ -13443,6 +13443,10 @@ snapshots:
     dependencies:
       "@iconify/types": 2.0.0
 
+  "@iconify-json/mdi@1.2.3":
+    dependencies:
+      "@iconify/types": 2.0.0
+
   "@iconify-json/ri@1.2.5":
     dependencies:
       "@iconify/types": 2.0.0
@@ -14837,8 +14841,6 @@ snapshots:
       - prettier
       - prettier-plugin-astro
       - typescript
-
-  astro-theme-toggle@0.5.0: {}
 
   astro@5.1.4(@types/node@22.10.5)(jiti@2.4.2)(rollup@2.79.2)(sass@1.83.4)(terser@5.37.0)(typescript@5.7.3)(yaml@2.7.0):
     dependencies:

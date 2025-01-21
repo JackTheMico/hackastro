@@ -1,0 +1,58 @@
+---
+import { menuItems } from "../consts.ts";
+import { Icon } from "astro-icon/components";
+import * as m from "../paraglide/messages.js";
+import { languageTag } from "../paraglide/runtime";
+---
+
+<ul
+  class="menu menu-sm dropdown-content bg-base-100 rounded-br-box w-60 p-2 shadow-lg"
+  id="header-menu"
+>
+  {
+    menuItems.map((item) => (
+      <li class="w-full relative">
+        {item.subItems ? (
+          <details class="menu-item">
+            <summary class="justify-start items-center text-center text-xl font-bold p-4">
+              <Icon name={item.svg} />
+              <span class="ml-2">{m[item.id as keyof typeof m]()}</span>
+            </summary>
+            <ul>
+              {item.subItems.map((subItem) => (
+                <li>
+                  <a
+                    tabindex="0"
+                    class="menu-item text-base font-bold p-3"
+                    id={`header-${subItem.id}`}
+                    href={"/" + languageTag() + subItem.href}
+                    target={subItem.target || "_self"}
+                    aria-label={m[subItem.id as keyof typeof m]()}
+                  >
+                    <Icon name={subItem.svg} />
+                    <span class="ml-2">
+                      {m[subItem.id as keyof typeof m]()}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </details>
+        ) : (
+          <a
+            tabindex="0"
+            class="flex justify-start items-center text-center text-xl font-bold p-4"
+            id={item.id}
+            title={item.id}
+            href={"/" + languageTag() + item.href}
+            target={item.target || "_self"}
+            aria-label={m[item.id as keyof typeof m]()}
+          >
+            <Icon name={item.svg} />
+            <span class="ml-2">{m[item.id as keyof typeof m]()}</span>
+          </a>
+        )}
+      </li>
+    ))
+  }
+</ul>

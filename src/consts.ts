@@ -5,6 +5,10 @@ export const SITE_DESCRIPTION = "A blog template";
 export const DATE_FORMAT = "ddd MMM DD YYYY";
 
 // Theme settings
+export const DAISYUI_THEME = {
+  light: "valentine",
+  dark: "dracula",
+};
 export const CODE_THEME = {
   light: "github-light",
   dark: "github-dark",
@@ -72,7 +76,7 @@ export const menuItems = [
   //   target: "_self",
   // }, // Friends page
   {
-    id: "contact",
+    id: "downloadcv",
     // text: "Contact",
     href: "mailto:dlwxxxdlw@gmail.com", // Contact email
     target: "_blank", // Open in a new tab
@@ -95,10 +99,16 @@ export const socialIcons = [
     svg: "ri:github-line",
   },
   {
+    href: "mailto:dlwxxxdlw@gmail.com",
+    ariaLabel: "Gmail",
+    title: "Gmail",
+    svg: "material-symbols:attach-email-outline-rounded",
+  },
+  {
     href: "https://space.bilibili.com/438392347",
-    ariaLabel: "BiliBili",
-    title: "BiliBili",
-    svg: "ri:bilibili-line",
+    ariaLabel: "Youtube",
+    title: "Youtube",
+    svg: "ri:youtube-line",
   },
   {
     href: "/rss.xml",

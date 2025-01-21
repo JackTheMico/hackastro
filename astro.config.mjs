@@ -26,7 +26,11 @@ export default defineConfig({
   },
   integrations: [
     partytown(),
-    icon(),
+    icon({
+      include: {
+        mdi: ["*"],
+      },
+    }),
     tailwind(),
     mdx(),
     sitemap(),
