@@ -15,7 +15,7 @@ dev:
 build: check
   pnpm run build
 
-preview:
+preview: build
   pnpm run preview
 
 changelog:

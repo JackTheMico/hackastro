@@ -2,7 +2,6 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import BaseCard from "../../../components/BaseCard.astro";
-// import { render } from "astro:content";
 
 export async function getStaticPaths() {
   const blogs = await getCollection("blog");

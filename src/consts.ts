@@ -78,7 +78,7 @@ export const menuItems = [
   {
     id: "downloadcv",
     // text: "Contact",
-    href: "mailto:dlwxxxdlw@gmail.com", // Contact email
+    href: "/fakeResume.pdf", // Resume link
     target: "_blank", // Open in a new tab
     svg: "material-symbols:attach-email-outline-rounded",
   },

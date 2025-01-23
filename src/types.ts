@@ -47,7 +47,7 @@ export interface Post {
     description: string;
     pubDate: Date;
     badge: string;
-    categories: string[];
+    category: string;
     tags: string[];
   };
   remarkPluginFrontmatter: {
@@ -55,4 +55,18 @@ export interface Post {
     readingTime: string;
   };
   slug: string;
+}
+
+export interface EnvelopeInfo {
+  title: string;
+  desc: string;
+  image?: string;
+  pubDate?: Date;
+  badge?: string;
+  category: string;
+  tags?: string[];
+  word?: string;
+  time?: string;
+  isBlog: boolean;
+  url: string;
 }
