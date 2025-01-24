@@ -1,3 +1,31 @@
+export interface Blog {
+  data: {
+    title: string;
+    image: string;
+    description: string;
+    pubDate: Date;
+    badge: string;
+    category: string;
+    tags: string[];
+  };
+  remarkPluginFrontmatter: {
+    totalCharCount: string;
+    readingTime: string;
+  };
+  slug: string;
+}
+
+export interface Page {
+  url: {
+    prev?: string;
+    next?: string;
+  };
+  data: Blog[];
+  total: number;
+  size: number;
+  current: number;
+}
+
 export interface MenuItem {
   id: string;
   svg: string;
@@ -25,36 +53,6 @@ export interface CardInfo {
   isBlog: boolean;
   comment?: boolean;
   url?: string;
-}
-
-export interface Page {
-  url: {
-    prev?: string;
-    next?: string;
-  };
-  data: Post[];
-  total: number;
-  size: number;
-  current: number;
-}
-
-export interface Post {
-  // [x: string]: any;
-  data: {
-    // [x: string]: any;
-    title: string;
-    image: string;
-    description: string;
-    pubDate: Date;
-    badge: string;
-    category: string;
-    tags: string[];
-  };
-  remarkPluginFrontmatter: {
-    totalCharCount: string;
-    readingTime: string;
-  };
-  slug: string;
 }
 
 export interface EnvelopeInfo {

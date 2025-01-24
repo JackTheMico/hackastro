@@ -2,37 +2,113 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import BaseCard from "../../../components/BaseCard.astro";
+import EnvelopeCard from "../../../components/EnvelopeCard.astro";
+import type { Blog, Page } from "../../../types.ts";
+import Pagination from "../../../components/Pagination.astro";
+import Search from "astro-pagefind/components/Search";
 
-export async function getStaticPaths() {
+export async function getStaticPaths({
+  paginate,
+}: {
+  paginate: CallableFunction;
+}) {
   const blogs = await getCollection("blog");
+  const topBlogs = blogs.filter((blog) => blog.data.badge === "Pin");
+  const otherBlogs = blogs.filter((blog) => blog.data.badge !== "Pin");
+  topBlogs.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+  otherBlogs.sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+  );
+  const sortedBlogs = [...topBlogs, ...otherBlogs];
+  const blogsWithStats = await Promise.all(
+    sortedBlogs.map(async (blog) => {
+      const { remarkPluginFrontmatter } = await blog.render();
 
-  const paths = blogs.map((blog) => {
-    const [lang, ...slug] = blog.slug.split("/");
-    return { params: { lang, slug: slug.join("/") || undefined }, props: blog };
+      return {
+        ...blog,
+        remarkPluginFrontmatter: {
+          readingTime: remarkPluginFrontmatter.readingTime,
+          totalCharCount: remarkPluginFrontmatter.totalCharCount,
+        },
+      };
+    }),
+  );
+
+  const langs = ["zh", "en"];
+  return langs.flatMap((lang) => {
+    const filtered_blogs = blogsWithStats.filter((blog) => {
+      const [blogLang, ...slug] = blog.slug.split("/");
+      if (blogLang === lang) {
+        blog.slug = slug.join("/");
+        return blog;
+      }
+    });
+    return paginate(filtered_blogs, {
+      params: { lang },
+      pageSize: 8,
+    });
   });
-
-  return paths;
 }
 
-// const { lang, slug } = Astro.params;
-const { lang } = Astro.params;
-const blog = Astro.props;
-const pubDate = blog.data.pubDate.toLocaleString(lang);
+const { page } = Astro.props as { page: Page };
 
-const { Content } = await blog.render();
+function generatePageLinks(totalPages: number): {
+  active: string[];
+  hidden: string[];
+} {
+  const pages = {
+    active: [] as string[],
+    hidden: [] as string[],
+  };
+
+  if (totalPages > 3) {
+    pages.active.push("1");
+    pages.active.push("...");
+    pages.active.push(totalPages.toString());
+    for (let i = 2; i <= totalPages - 1; i++) {
+      pages.hidden.push(i.toString());
+    }
+  } else {
+    for (let i = 1; i <= totalPages; i++) {
+      pages.active.push(i.toString());
+    }
+  }
+  return pages;
+}
+
+const totalPages = Math.ceil(page.total / page.size);
+const pageLinks = generatePageLinks(totalPages);
 ---
 
 <BaseLayout>
-  <BaseCard
-    title={blog.data.title}
-    author={blog.data.author}
-    description={blog.data.description}
-    category={blog.data.category}
-    tags={blog.data.tags}
-    pubDate={pubDate}
-    heroImage={blog.data.heroImage}
-    isBlog="true"
-  >
-    <Content />
+  <BaseCard>
+    <Search
+      id="search"
+      className="pagefind-ui"
+      uiOptions={{ showImages: true }}
+    />
   </BaseCard>
+  {
+    page.data.map((blog: Blog) => (
+      <EnvelopeCard
+        title={blog.data.title}
+        image={blog.data.image}
+        desc={blog.data.description}
+        url={"/blog/" + blog.slug}
+        pubDate={blog.data.pubDate}
+        badge={blog.data.badge}
+        category={blog.data.category}
+        tags={blog.data.tags}
+        word={blog.remarkPluginFrontmatter.totalCharCount}
+        time={blog.remarkPluginFrontmatter.readingTime}
+        target="_self"
+      />
+    ))
+  }
+  <Pagination
+    page={page}
+    totalPages={totalPages}
+    pageLinks={pageLinks}
+    baseUrl={`/blog`}
+  />
 </BaseLayout>

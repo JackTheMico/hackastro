@@ -1,5 +1,4 @@
 ---
-// return Astro.redirect("/en/about/");
+import { languageTag } from "../paraglide/runtime";
+return Astro.redirect("/" + languageTag() + "/about");
 ---
-
-<meta http-equiv="refresh" content="0;url=/en/about/" />

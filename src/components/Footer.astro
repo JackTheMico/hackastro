@@ -1,5 +1,6 @@
 ---
-import { USER_NAME, USER_SITE } from "../consts";
+import { USER_SITE } from "../consts";
+import * as m from "../paraglide/messages.js";
 ---
 
 <footer class="bg-base-100 p-6 fade-in-up shadow-xl rounded-xl">
@@ -21,20 +22,20 @@ import { USER_NAME, USER_SITE } from "../consts";
         ></path>
       </svg>
       <p class="text-sm text-base-content">
-        Copyright ©
+        {m.copyRight()} ©
         <a
           href={USER_SITE}
           target="_blank"
           class="inline-flex items-center gap-1 font-medium"
-          >{USER_NAME}
+          >{m.userName()}
         </a>
-        {new Date().getFullYear()} - All right reserved
+        {new Date().getFullYear()} - {m.reserved()}
       </p>
     </div>
 
     <nav class="flex items-center text-sm text-base-content">
       <span>Powered by</span>
-      <button class="btn btn-primary btn-xs btn-link">
+      <button class="btn btn-primary btn-sm btn-link">
         <a
           href="https://github.com/JackTheMico/hackastro"
           target="_blank"
@@ -43,8 +44,8 @@ import { USER_NAME, USER_SITE } from "../consts";
           Hackastro
         </a>
       </button>
-      <span>A template based on </span>
-      <button class="btn btn-primary btn-xs btn-link">
+      <span> and </span>
+      <button class="btn btn-primary btn-sm btn-link">
         <a
           href="https://github.com/JackTheMico/hackastro"
           target="_blank"

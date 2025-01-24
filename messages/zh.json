@@ -4,7 +4,7 @@
   "about": "关于",
   "blog": "博客",
   "project": "项目",
-  "downloadcv": "下载简历",
+  "downloadcv": "简历",
   "allblog": "全部博客",
   "techblog": "技术博客",
   "lifeblog": "生活博客",
@@ -17,5 +17,8 @@
   "close": "❌",
   "prevPage": "上一页",
   "nextPage": "下一页",
-  "categoryPage": "分类"
+  "categoryPage": "分类",
+  "copyRight": "版权所有",
+  "userName": "邓文漾",
+  "reserved": "保留所有权利"
 }

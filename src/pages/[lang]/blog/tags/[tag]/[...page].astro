@@ -1,5 +1,5 @@
 ---
-import type { Post, Page } from "../../../../../types.ts";
+import type { Blog, Page } from "../../../../../types.ts";
 import EnvelopeCard from "../../../../../components/EnvelopeCard.astro";
 import BaseLayout from "../../../../../layouts/BaseLayout.astro";
 import BaseCard from "../../../../../components/BaseCard.astro";
@@ -13,27 +13,27 @@ export async function getStaticPaths({
 }: {
   paginate: CallableFunction;
 }) {
-  const all_posts = await getCollection("blog");
-  const filtered_posts = all_posts.filter((post) => {
-    const [lang] = post.slug.split("/");
+  const all_blogs = await getCollection("blog");
+  const filtered_blogs = all_blogs.filter((blog) => {
+    const [lang] = blog.slug.split("/");
     if (languageTag() === lang) {
-      return post;
+      return blog;
     }
   });
 
   const all_tags = [
-    ...new Set(filtered_posts.flatMap((post) => post.data.tags || [])),
+    ...new Set(filtered_blogs.flatMap((blog) => blog.data.tags || [])),
   ];
 
-  filtered_posts.sort(
+  filtered_blogs.sort(
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
   );
 
-  const postsWithStats = await Promise.all(
-    filtered_posts.map(async (post) => {
-      const { remarkPluginFrontmatter } = await post.render();
+  const blogsWithStats = await Promise.all(
+    filtered_blogs.map(async (blog) => {
+      const { remarkPluginFrontmatter } = await blog.render();
       return {
-        ...post,
+        ...blog,
         remarkPluginFrontmatter: {
           readingTime: remarkPluginFrontmatter.readingTime,
           totalCharCount: remarkPluginFrontmatter.totalCharCount,
@@ -43,11 +43,11 @@ export async function getStaticPaths({
   );
 
   return all_tags.flatMap((tag) => {
-    const filtered_posts = postsWithStats.filter((post) =>
-      post.data.tags?.includes(tag),
+    const filtered_blogs = blogsWithStats.filter((blog) =>
+      blog.data.tags?.includes(tag),
     );
     const lang = languageTag();
-    return paginate(filtered_posts, {
+    return paginate(filtered_blogs, {
       params: { tag, lang },
       pageSize: 8,
     });
@@ -91,18 +91,18 @@ const pageLinks = generatePageLinks(totalPages);
     <hr />
   </BaseCard>
   {
-    page.data.map((post: Post) => (
+    page.data.map((blog: Blog) => (
       <EnvelopeCard
-        title={post.data.title}
-        image={post.data.image}
-        desc={post.data.description}
-        url={"/blog/" + post.slug}
-        pubDate={post.data.pubDate}
-        badge={post.data.badge}
-        category={post.data.category}
-        tags={post.data.tags}
-        word={post.remarkPluginFrontmatter.totalCharCount}
-        time={post.remarkPluginFrontmatter.readingTime}
+        title={blog.data.title}
+        image={blog.data.image}
+        desc={blog.data.description}
+        url={"/blog/" + blog.slug}
+        pubDate={blog.data.pubDate}
+        badge={blog.data.badge}
+        category={blog.data.category}
+        tags={blog.data.tags}
+        word={blog.remarkPluginFrontmatter.totalCharCount}
+        time={blog.remarkPluginFrontmatter.readingTime}
         target="_self"
       />
     ))

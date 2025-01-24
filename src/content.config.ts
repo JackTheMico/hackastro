@@ -6,6 +6,7 @@ const blogCollection = defineCollection({
     author: z.string(),
     description: z.string().optional(),
     category: z.enum(["tech", "life"]),
+    badge: z.string().optional(),
     tags: z
       .array(z.string())
       .refine((items) => new Set(items).size === items.length, {

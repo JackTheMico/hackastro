@@ -1,5 +1,5 @@
 ---
-import type { Post, Page } from "../../../../../types";
+import type { Blog, Page } from "../../../../../types";
 import EnvelopeCard from "../../../../../components/EnvelopeCard.astro";
 import BaseLayout from "../../../../../layouts/BaseLayout.astro";
 import BaseCard from "../../../../../components/BaseCard.astro";
@@ -13,19 +13,19 @@ export async function getStaticPaths({
 }: {
   paginate: CallableFunction;
 }) {
-  const all_posts = await getCollection("blog");
+  const all_blogs = await getCollection("blog");
 
   const all_categories = [
-    ...new Set(all_posts.flatMap((post) => post.data.category || [])),
+    ...new Set(all_blogs.flatMap((blog) => blog.data.category || [])),
   ];
 
-  all_posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+  all_blogs.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
-  const postsWithStats = await Promise.all(
-    all_posts.map(async (post) => {
-      const { remarkPluginFrontmatter } = await post.render();
+  const blogsWithStats = await Promise.all(
+    all_blogs.map(async (blog) => {
+      const { remarkPluginFrontmatter } = await blog.render();
       return {
-        ...post,
+        ...blog,
         remarkPluginFrontmatter: {
           readingTime: remarkPluginFrontmatter.readingTime,
           totalCharCount: remarkPluginFrontmatter.totalCharCount,
@@ -36,14 +36,14 @@ export async function getStaticPaths({
   const langs = ["zh", "en"];
   return langs.flatMap((lang) => {
     return all_categories.flatMap((category) => {
-      const filtered_posts = postsWithStats.filter((post) => {
-        const [postLang, ...slug] = post.slug.split("/");
-        if (post.data.category === category && postLang === lang) {
-          post.slug = slug.join("/");
-          return post;
+      const filtered_blogs = blogsWithStats.filter((blog) => {
+        const [blogLang, ...slug] = blog.slug.split("/");
+        if (blog.data.category === category && blogLang === lang) {
+          blog.slug = slug.join("/");
+          return blog;
         }
       });
-      return paginate(filtered_posts, {
+      return paginate(filtered_blogs, {
         params: { category, lang },
         pageSize: 8,
       });
@@ -88,18 +88,18 @@ const pageLinks = generatePageLinks(totalPages);
     <hr />
   </BaseCard>
   {
-    page.data.map((post: Post) => (
+    page.data.map((blog: Blog) => (
       <EnvelopeCard
-        title={post.data.title}
-        image={post.data.image}
-        desc={post.data.description}
-        url={"/" + languageTag() + "/blog/" + post.slug}
-        pubDate={post.data.pubDate}
-        badge={post.data.badge}
-        category={post.data.category}
-        tags={post.data.tags}
-        word={post.remarkPluginFrontmatter.totalCharCount}
-        time={post.remarkPluginFrontmatter.readingTime}
+        title={blog.data.title}
+        image={blog.data.image}
+        desc={blog.data.description}
+        url={"/" + languageTag() + "/blog/" + blog.slug}
+        pubDate={blog.data.pubDate}
+        badge={blog.data.badge}
+        category={blog.data.category}
+        tags={blog.data.tags}
+        word={blog.remarkPluginFrontmatter.totalCharCount}
+        time={blog.remarkPluginFrontmatter.readingTime}
         target="_self"
       />
     ))

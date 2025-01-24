@@ -16,5 +16,8 @@
   "close": "Close",
   "prevPage": "Prev",
   "nextPage": "Next",
-  "categoryPage": "Category"
+  "categoryPage": "Category",
+  "copyRight": "Copyright",
+  "userName": "Jack Wenyoung",
+  "reserved": "All right reserved"
 }

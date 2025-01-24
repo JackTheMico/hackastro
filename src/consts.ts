@@ -75,13 +75,13 @@ export const menuItems = [
   //   svg: "material-symbols:supervisor-account-outline-rounded",
   //   target: "_self",
   // }, // Friends page
-  {
-    id: "downloadcv",
-    // text: "Contact",
-    href: "/fakeResume.pdf", // Resume link
-    target: "_blank", // Open in a new tab
-    svg: "material-symbols:attach-email-outline-rounded",
-  },
+  // {
+  //   id: "downloadcv",
+  //   // text: "Contact",
+  //   href: "/fakeResume.pdf", // Resume link
+  //   target: "_blank", // Open in a new tab
+  //   svg: "material-symbols:attach-email-outline-rounded",
+  // },
 ];
 
 // Social media and contact icons
