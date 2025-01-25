@@ -14,6 +14,8 @@ export const CODE_THEME = {
   dark: "github-dark",
 };
 
+export const LANGS = ["zh", "en"];
+
 // User profile information
 export const USER_SITE = "https://frosti.saroprock.com";
 export const USER_NAME = "Jack Wenyoung";

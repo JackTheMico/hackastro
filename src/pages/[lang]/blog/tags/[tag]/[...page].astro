@@ -6,7 +6,7 @@ import BaseCard from "../../../../../components/BaseCard.astro";
 import Pagination from "../../../../../components/Pagination.astro";
 import { getCollection } from "astro:content";
 import * as m from "../../../../../paraglide/messages.js";
-import { languageTag } from "../../../../../paraglide/runtime";
+import { LANGS } from "../../../../../consts";
 
 export async function getStaticPaths({
   paginate,
@@ -14,23 +14,15 @@ export async function getStaticPaths({
   paginate: CallableFunction;
 }) {
   const all_blogs = await getCollection("blog");
-  const filtered_blogs = all_blogs.filter((blog) => {
-    const [lang] = blog.slug.split("/");
-    if (languageTag() === lang) {
-      return blog;
-    }
-  });
 
   const all_tags = [
-    ...new Set(filtered_blogs.flatMap((blog) => blog.data.tags || [])),
+    ...new Set(all_blogs.flatMap((blog) => blog.data.tags || [])),
   ];
 
-  filtered_blogs.sort(
-    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-  );
+  all_blogs.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
   const blogsWithStats = await Promise.all(
-    filtered_blogs.map(async (blog) => {
+    all_blogs.map(async (blog) => {
       const { remarkPluginFrontmatter } = await blog.render();
       return {
         ...blog,
@@ -42,14 +34,18 @@ export async function getStaticPaths({
     }),
   );
 
-  return all_tags.flatMap((tag) => {
-    const filtered_blogs = blogsWithStats.filter((blog) =>
-      blog.data.tags?.includes(tag),
-    );
-    const lang = languageTag();
-    return paginate(filtered_blogs, {
-      params: { tag, lang },
-      pageSize: 8,
+  return LANGS.flatMap((lang) => {
+    return all_tags.flatMap((tag) => {
+      const filtered_blogs = blogsWithStats.filter((blog) => {
+        const [blogLang] = blog.slug.split("/");
+        if (blog.data.tags?.includes(tag) && blogLang === lang) {
+          return blog;
+        }
+      });
+      return paginate(filtered_blogs, {
+        params: { tag, lang },
+        pageSize: 8,
+      });
     });
   });
 }
@@ -87,7 +83,7 @@ const pageLinks = generatePageLinks(totalPages);
 
 <BaseLayout title="Tag">
   <BaseCard title="Tag">
-    <h1 id="h1">{`${m.categoryPage()} - ${params.tag}`}</h1>
+    <h1 id="h1">{`${m.tagPage()} - ${params.tag}`}</h1>
     <hr />
   </BaseCard>
   {

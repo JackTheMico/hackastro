@@ -7,6 +7,7 @@ import Pagination from "../../../../../components/Pagination.astro";
 import { getCollection } from "astro:content";
 import * as m from "../../../../../paraglide/messages.js";
 import { languageTag } from "../../../../../paraglide/runtime";
+import { LANGS } from "../../../../../consts";
 
 export async function getStaticPaths({
   paginate,
@@ -33,13 +34,11 @@ export async function getStaticPaths({
       };
     }),
   );
-  const langs = ["zh", "en"];
-  return langs.flatMap((lang) => {
+  return LANGS.flatMap((lang) => {
     return all_categories.flatMap((category) => {
       const filtered_blogs = blogsWithStats.filter((blog) => {
-        const [blogLang, ...slug] = blog.slug.split("/");
+        const [blogLang] = blog.slug.split("/");
         if (blog.data.category === category && blogLang === lang) {
-          blog.slug = slug.join("/");
           return blog;
         }
       });

@@ -1,0 +1,43 @@
+---
+import { getCollection } from "astro:content";
+import CardAside from "../layouts/CardAside.astro";
+import TagButton from "./TagButton.astro";
+import * as m from "../paraglide/messages.js";
+import { languageTag } from "../paraglide/runtime";
+
+interface TagCount {
+  tag: string;
+  count: number;
+}
+
+export async function getTagsWithCounts(): Promise<TagCount[]> {
+  const posts = await getCollection("blog");
+  const tagMap = new Map<string, number>();
+
+  posts.forEach((post) => {
+    const tags = post.data.tags || [];
+    tags.forEach((tag) => {
+      tagMap.set(tag, (tagMap.get(tag) || 0) + 1);
+    });
+  });
+
+  return Array.from(tagMap, ([tag, count]) => ({ tag, count }));
+}
+
+const tagsWithCounts = await getTagsWithCounts();
+---
+
+<CardAside title={m.tagCard()}>
+  <div class="flex flex-wrap gap-1 w-full max-h-[300px] p-1 overflow-auto">
+    {
+      tagsWithCounts.map(({ tag, count }) => (
+        <TagButton
+          text={tag}
+          count={count}
+          href={`/${languageTag()}/blog/tags/${tag}`}
+          type="tag"
+        />
+      ))
+    }
+  </div>
+</CardAside>

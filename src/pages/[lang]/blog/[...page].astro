@@ -6,6 +6,7 @@ import EnvelopeCard from "../../../components/EnvelopeCard.astro";
 import type { Blog, Page } from "../../../types.ts";
 import Pagination from "../../../components/Pagination.astro";
 import Search from "astro-pagefind/components/Search";
+import { LANGS } from "../../../consts.ts";
 
 export async function getStaticPaths({
   paginate,
@@ -34,8 +35,7 @@ export async function getStaticPaths({
     }),
   );
 
-  const langs = ["zh", "en"];
-  return langs.flatMap((lang) => {
+  return LANGS.flatMap((lang) => {
     const filtered_blogs = blogsWithStats.filter((blog) => {
       const [blogLang, ...slug] = blog.slug.split("/");
       if (blogLang === lang) {
