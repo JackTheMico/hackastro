@@ -17,6 +17,9 @@ import pagefind from "astro-pagefind";
 
 // https://astro.build/config
 export default defineConfig({
+  build: {
+    format: "directory",
+  },
   site: USER_SITE,
   i18n: {
     defaultLocale: "zh", // the default locale

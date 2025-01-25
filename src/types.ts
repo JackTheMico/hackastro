@@ -12,6 +12,7 @@ export interface Blog {
     totalCharCount: string;
     readingTime: string;
   };
+  lang?: string;
   slug: string;
 }
 

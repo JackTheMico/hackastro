@@ -34,26 +34,27 @@ import * as m from "../paraglide/messages.js";
     </div>
 
     <nav class="flex items-center text-sm text-base-content">
-      <span>Powered by</span>
-      <button class="btn btn-primary btn-sm btn-link">
-        <a
-          href="https://github.com/JackTheMico/hackastro"
-          target="_blank"
-          class="items-center font-sm"
-        >
-          Hackastro
-        </a>
-      </button>
-      <span> and </span>
-      <button class="btn btn-primary btn-sm btn-link">
-        <a
-          href="https://github.com/JackTheMico/hackastro"
-          target="_blank"
-          class="items-center font-sm"
-        >
-          Frosti
-        </a>
-      </button>
+      <span>{m.poweredBy()}</span>
+      <div>
+        <button class="btn btn-link p-1">
+          <a
+            href="https://github.com/JackTheMico/hackastro"
+            target="_blank"
+            class="font-sm"
+          >
+            Hackastro
+          </a>
+        </button>
+        <button class="btn btn-link p-0">
+          <a
+            href="https://github.com/JackTheMico/hackastro"
+            target="_blank"
+            class="font-sm"
+          >
+            Frosti
+          </a>
+        </button>
+      </div>
     </nav>
   </div>
 </footer>

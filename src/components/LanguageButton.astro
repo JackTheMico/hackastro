@@ -1,0 +1,63 @@
+---
+import { LANGS_MAP } from "../consts.ts";
+import { Icon } from "astro-icon/components";
+const { className } = Astro.props;
+---
+
+<lang-change>
+  <div
+    class="dropdown dropdown-left dropdown-bottom dropdown-hover lg:dropdown-right"
+  >
+    <div
+      tabindex="0"
+      role="button"
+      class:list={[
+        className,
+        "btn",
+        "btn-ghost",
+        "btn-circle",
+        "hover:scale-110",
+        "hover:rotate-12",
+        "transition-scale",
+        "transition-color",
+        "duration-300",
+      ]}
+    >
+      <Icon name="material-symbols:emoji-language" class="size-8" />
+    </div>
+    <ul
+      tabindex="0"
+      class="bg-base-200 dropdown-content menu rounded-box z-[1] p-2 shadow"
+    >
+      {
+        Object.entries(LANGS_MAP).map(([lang, label]) => (
+          <li class="bg-base-100">
+            <button id={lang} name="lang-change-btn" class="btn btn-ghost">
+              {label}
+            </button>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</lang-change>
+
+<script>
+  class LangChange extends HTMLElement {
+    connectedCallback() {
+      const $ = (selector: string) => this.querySelectorAll(selector);
+      const buttons = $("[name=lang-change-btn]");
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          let paths = window.location.pathname.split("/");
+          paths = paths.slice(1); // get rid of the empty string
+          paths[0] = button.id;
+          const newPath = paths.join("/");
+          window.location.href = `/${newPath}`;
+        });
+      });
+    }
+  }
+
+  customElements.define("lang-change", LangChange);
+</script>

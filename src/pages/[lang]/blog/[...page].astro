@@ -7,6 +7,7 @@ import type { Blog, Page } from "../../../types.ts";
 import Pagination from "../../../components/Pagination.astro";
 import Search from "astro-pagefind/components/Search";
 import { LANGS } from "../../../consts.ts";
+import { languageTag } from "../../../paraglide/runtime";
 
 export async function getStaticPaths({
   paginate,
@@ -37,13 +38,17 @@ export async function getStaticPaths({
 
   return LANGS.flatMap((lang) => {
     const filtered_blogs = blogsWithStats.filter((blog) => {
-      const [blogLang, ...slug] = blog.slug.split("/");
+      const [blogLang] = blog.slug.split("/");
       if (blogLang === lang) {
-        blog.slug = slug.join("/");
         return blog;
       }
     });
-    return paginate(filtered_blogs, {
+    const blogs = filtered_blogs.map((blog) => {
+      const [, ...slug] = blog.slug.split("/");
+      blog.slug = slug.join("/");
+      return blog;
+    });
+    return paginate(blogs, {
       params: { lang },
       pageSize: 8,
     });
@@ -94,7 +99,7 @@ const pageLinks = generatePageLinks(totalPages);
         title={blog.data.title}
         image={blog.data.image}
         desc={blog.data.description}
-        url={"/blog/" + blog.slug}
+        url={"/" + languageTag() + "/blog/" + blog.slug}
         pubDate={blog.data.pubDate}
         badge={blog.data.badge}
         category={blog.data.category}

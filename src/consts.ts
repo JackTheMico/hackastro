@@ -15,6 +15,10 @@ export const CODE_THEME = {
 };
 
 export const LANGS = ["zh", "en"];
+export const LANGS_MAP = {
+  zh: "中文",
+  en: "English",
+};
 
 // User profile information
 export const USER_SITE = "https://frosti.saroprock.com";
