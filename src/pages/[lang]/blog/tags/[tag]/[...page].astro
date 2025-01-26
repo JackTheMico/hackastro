@@ -6,7 +6,7 @@ import BaseCard from "../../../../../components/BaseCard.astro";
 import Pagination from "../../../../../components/Pagination.astro";
 import { getCollection } from "astro:content";
 import * as m from "../../../../../paraglide/messages.js";
-import { LANGS } from "../../../../../consts";
+import { LANGS, EACH_PAGE_SIZE } from "../../../../../consts";
 
 export async function getStaticPaths({
   paginate,
@@ -44,7 +44,7 @@ export async function getStaticPaths({
       });
       return paginate(filtered_blogs, {
         params: { tag, lang },
-        pageSize: 8,
+        pageSize: EACH_PAGE_SIZE,
       });
     });
   });

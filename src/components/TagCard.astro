@@ -21,6 +21,9 @@ export async function getTagsWithCounts(): Promise<TagCount[]> {
     });
   });
 
+  // Because I have two languages for each blog.
+  tagMap.forEach((value, key) => tagMap.set(key, value / 2));
+
   return Array.from(tagMap, ([tag, count]) => ({ tag, count }));
 }
 

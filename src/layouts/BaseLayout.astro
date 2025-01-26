@@ -6,6 +6,8 @@ import TagCard from "../components/TagCard.astro";
 import { SITE_TAB, SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 const { title, image } = Astro.props;
 import Footer from "../components/Footer.astro";
+import TocCard from "../components/TocCard.astro";
+import ToolCard from "../components/ToolCard.astro";
 ---
 
 <!doctype html>
@@ -28,7 +30,8 @@ import Footer from "../components/Footer.astro";
           <Profile />
           <TagCard />
           <div class="grid gap-8 w-full sticky top-8">
-            <!-- <TocCard /> -->
+            <ToolCard />
+            <TocCard />
           </div>
         </aside>
 

@@ -6,7 +6,7 @@ import EnvelopeCard from "../../../components/EnvelopeCard.astro";
 import type { Blog, Page } from "../../../types.ts";
 import Pagination from "../../../components/Pagination.astro";
 import Search from "astro-pagefind/components/Search";
-import { LANGS } from "../../../consts.ts";
+import { LANGS, EACH_PAGE_SIZE } from "../../../consts.ts";
 import { languageTag } from "../../../paraglide/runtime";
 
 export async function getStaticPaths({
@@ -50,7 +50,7 @@ export async function getStaticPaths({
     });
     return paginate(blogs, {
       params: { lang },
-      pageSize: 8,
+      pageSize: EACH_PAGE_SIZE,
     });
   });
 }

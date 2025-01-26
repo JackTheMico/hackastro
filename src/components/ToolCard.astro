@@ -1,0 +1,16 @@
+---
+import ThemeButton from "./ThemeButton.astro";
+import LanguageButton from "./LanguageButton.astro";
+import BackToTopButton from "./BackToTopButton.astro";
+---
+
+<div class="w-full shadow-xl rounded-xl">
+  <div
+    class="grid gap-2 grid-cols-3 md:grid-cols-1 lg:grid-cols-3 justify-center w-full bg-base-100 p-4 rounded-xl"
+    id="button-box"
+  >
+    <ThemeButton id="side-theme-button" className="card" />
+    <LanguageButton className="card" />
+    <BackToTopButton id="back-button" className="card" />
+  </div>
+</div>

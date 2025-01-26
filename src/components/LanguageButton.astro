@@ -6,7 +6,7 @@ const { className } = Astro.props;
 
 <lang-change>
   <div
-    class="dropdown dropdown-left dropdown-bottom dropdown-hover lg:dropdown-right"
+    class="dropdown dropdown-left dropdown-bottom dropdown-hover md:dropdown-right lg:dropdown-right w-full"
   >
     <div
       tabindex="0"
@@ -21,6 +21,7 @@ const { className } = Astro.props;
         "transition-scale",
         "transition-color",
         "duration-300",
+        "w-full",
       ]}
     >
       <Icon name="material-symbols:emoji-language" class="size-8" />

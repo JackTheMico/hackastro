@@ -20,6 +20,8 @@ export const LANGS_MAP = {
   en: "English",
 };
 
+export const EACH_PAGE_SIZE = 6;
+
 // User profile information
 export const USER_SITE = "https://frosti.saroprock.com";
 export const USER_NAME = "Jack Wenyoung";
