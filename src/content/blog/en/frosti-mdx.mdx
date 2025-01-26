@@ -36,15 +36,15 @@ First you need to create an `mdx` file, which is as simple as changing the exten
 The components provided by Frosti are placed in the `/mdx` folders. Write something under the document properties (frontmatter):
 
 ```astro
-import Collapse from "../../components/mdx/Collapse.astro"; import Diff from
-"../../components/mdx/Diff.astro"; import Error from
-"../../components/mdx/Error.astro"; import Info from
-"../../components/mdx/Info.astro"; import Kbd from
-"../../components/mdx/Kbd.astro"; import Success from
-"../../components/mdx/Success.astro"; import Warning from
-"../../components/mdx/Warning.astro"; import TimeLine from
-"../../components/mdx/TimeLine.astro"; import LinkCard from
-"../../components/mdx/LinkCard.astro";
+import Collapse from "../../components/mdx/Collapse.astro"; 
+import Diff from "../../components/mdx/Diff.astro"; 
+import Error from "../../components/mdx/Error.astro"; 
+import Info from "../../components/mdx/Info.astro"; 
+import Kbd from "../../components/mdx/Kbd.astro"; 
+import Success from "../../components/mdx/Success.astro"; 
+import Warning from "../../components/mdx/Warning.astro"; 
+import TimeLine from "../../components/mdx/TimeLine.astro"; 
+import LinkCard from "../../components/mdx/LinkCard.astro";
 ```
 
 ### Example
@@ -63,16 +63,16 @@ import Collapse from "../../components/mdx/Collapse.astro"; import Diff from
 
 #### Diff
 
-<Diff r="/image/r.png" l="/image/l.png"></Diff>
+<Diff r="/image/right.png" l="/image/left.png"></Diff>
 
 ```astro
-<Diff r="/image/r.png" l="/image/l.png" />
+<Diff r="/image/right.png" l="/image/left.png" />
 ```
 
 #### Error
 
 <Error>
-  Maybe something went wrong? [www.baidu.com](https://www.baidu.com)
+  Maybe something went wrong?
 </Error>
 
 ```astro
@@ -138,17 +138,17 @@ import Collapse from "../../components/mdx/Collapse.astro"; import Diff from
 #### LinkCard
 
 <LinkCard
-  title="Frosti"
+  title="Hackastro"
   desc="My blog project!"
-  url="https://github.com/EveSunMaple/Frosti"
-  img="/view.png"
+  url="https://github.com/JackTheMico/hackastro"
+  img="/image/view.png"
 />
 
 ```astro
 <LinkCard
-  title="Frosti"
+  title="Hackastro"
   desc="My blog project!"
-  url="https://github.com/EveSunMaple/Frosti"
-  img="/view.png"
+  url="https://github.com/JackTheMico/hackastro"
+  img="/image/view.png"
 />
 ```

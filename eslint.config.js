@@ -98,6 +98,8 @@ export default [
       ".astro",
       ".vercel",
       "/paraglide",
+      "src/utils/transformers.js",
+      "src/pages/rss.xml.ts",
     ],
   },
 ];

@@ -55,4 +55,20 @@ import { languageTag } from "../paraglide/runtime";
       </li>
     ))
   }
+  <li class="w-full relative">
+    <a
+      tabindex="0"
+      class="flex justify-start items-center text-center text-xl font-bold p-4"
+      title="downloadcv"
+      href={"/" + languageTag() + "/fakeResume.pdf"}
+      target="_blank"
+      aria-label={m.downloadcv()}
+      download
+    >
+      <Icon name="material-symbols:file-save-outline-sharp" />
+      <span class="ml-2">
+        {m.downloadcv()}
+      </span>
+    </a>
+  </li>
 </ul>

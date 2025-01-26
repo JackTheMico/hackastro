@@ -1,5 +1,6 @@
 {
   "extends": "astro/tsconfigs/strict",
   "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["dist", "src/paraglide"]
+  "exclude": ["dist", "src/paraglide"],
+  "lib": ["es2020", "dom"]
 }

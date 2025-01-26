@@ -31,7 +31,7 @@ This article describes how to use the components provided by Frosti in `mdx` to 
 
 First you need to create an `mdx` file, which is as simple as changing the extension to `.mdx`.
 
-### Introducing
+### 介绍
 
 The components provided by Frosti are placed in the `/mdx` folders. Write something under the document properties (frontmatter):
 
@@ -47,7 +47,7 @@ import Collapse from "../../../components/mdx/Collapse.astro"; import Diff from
 "../../../components/mdx/LinkCard.astro";
 ```
 
-### Example
+### 样例
 
 #### Collapse
 
@@ -63,16 +63,16 @@ import Collapse from "../../../components/mdx/Collapse.astro"; import Diff from
 
 #### Diff
 
-<Diff r="/image/r.png" l="/image/l.png"></Diff>
+<Diff r="/image/right.png" l="/image/left.png" />
 
 ```astro
-<Diff r="/image/r.png" l="/image/l.png" />
+<Diff r="/image/right.png" l="/image/left.png" />
 ```
 
 #### Error
 
 <Error>
-  Maybe something went wrong? [www.baidu.com](https://www.baidu.com)
+  Maybe something went wrong?
 </Error>
 
 ```astro
@@ -138,17 +138,17 @@ import Collapse from "../../../components/mdx/Collapse.astro"; import Diff from
 #### LinkCard
 
 <LinkCard
-  title="Frosti"
+  title="Hackastro"
   desc="My blog project!"
-  url="https://github.com/EveSunMaple/Frosti"
-  img="/view.png"
+  url="https://github.com/JackTheMico/hackastro"
+  img="/image/view.png"
 />
 
 ```astro
 <LinkCard
-  title="Frosti"
+  title="Hackastro"
   desc="My blog project!"
-  url="https://github.com/EveSunMaple/Frosti"
-  img="/view.png"
+  url="https://github.com/JackTheMico/hackastro"
+  img="/image/view.png"
 />
 ```

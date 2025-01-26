@@ -95,13 +95,13 @@ export const menuItems = [
 // Social media and contact icons
 export const socialIcons = [
   {
-    href: "https://afdian.net/a/saroprock",
+    href: "https://buymeacoffee.com/JackDeng",
     ariaLabel: "Support my work",
     title: "Support my work",
     svg: "ri:cup-line",
   },
   {
-    href: "https://github.com/EveSunMaple",
+    href: "https://github.com/JackTheMico",
     ariaLabel: "Github",
     title: "Github",
     svg: "ri:github-line",
@@ -113,10 +113,10 @@ export const socialIcons = [
     svg: "material-symbols:attach-email-outline-rounded",
   },
   {
-    href: "https://space.bilibili.com/438392347",
-    ariaLabel: "Youtube",
-    title: "Youtube",
-    svg: "ri:youtube-line",
+    href: "https://x.com/JokerDFunny",
+    ariaLabel: "X(Twitter)",
+    title: "X(Twitter)",
+    svg: "ri:twitter-line",
   },
   {
     href: "/rss.xml",
