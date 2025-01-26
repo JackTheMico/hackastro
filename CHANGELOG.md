@@ -1,6 +1,22 @@
-## <small>0.0.1 (2025-01-12)</small>
+## <small>0.0.2 (2025-01-26)</small>
 
+- ✨ feat: add husky, commitlint, etc ([d97e9cd](https://jokefunny/JackTheMico/hackastro/commits/d97e9cd))
 - ✨ feat(basic): add basic files and packages ([f4ab9a2](https://jokefunny/JackTheMico/hackastro/commits/f4ab9a2))
 - ✨ feat(basic): add basic stuff ([c914921](https://jokefunny/JackTheMico/hackastro/commits/c914921))
+- ✨ feat(blog): add i18n speicfic blog pagination ([11dfda4](https://jokefunny/JackTheMico/hackastro/commits/11dfda4))
+- ✨ feat(i18n): add ParaglideJS packages ([3fa40ee](https://jokefunny/JackTheMico/hackastro/commits/3fa40ee))
+- ✨ feat(i18n): add the basic i18n feature ([1e935f3](https://jokefunny/JackTheMico/hackastro/commits/1e935f3))
+- ✨ feat(i18n): complete the basic i18n feature ([227fcae](https://jokefunny/JackTheMico/hackastro/commits/227fcae))
+- ✨ feat(i18n): complete the language switcher ([10a63c7](https://jokefunny/JackTheMico/hackastro/commits/10a63c7))
+- ✨ feat(just): add watch-check ([672f2cb](https://jokefunny/JackTheMico/hackastro/commits/672f2cb))
+- ✨ feat(mdx): add tool and toc card ([0fd2385](https://jokefunny/JackTheMico/hackastro/commits/0fd2385))
+- ✨ feat(mdx): setup basic layout and mdx rendering ([dc4302e](https://jokefunny/JackTheMico/hackastro/commits/dc4302e))
+- ✨ feat(nav): add navbar; change theme button ([1073829](https://jokefunny/JackTheMico/hackastro/commits/1073829))
+- ✨ feat(pages): setup all blogs page; add pagefind ([51183c7](https://jokefunny/JackTheMico/hackastro/commits/51183c7))
+- ✨ feat(tag): add tag card ([9fc3903](https://jokefunny/JackTheMico/hackastro/commits/9fc3903))
+- ✨ feat(theme): add astro-theme-toggle and blog page basic rendering ([004db09](https://jokefunny/JackTheMico/hackastro/commits/004db09))
+- 🐛 fix(mdx): add rss generation; fix the demo mdx ([4041f92](https://jokefunny/JackTheMico/hackastro/commits/4041f92))
+- 🐛 fix(prettier): fix the prettier format mdx files issue ([64b4c69](https://jokefunny/JackTheMico/hackastro/commits/64b4c69))
 - 📄 license(license): add GNU 3.0 license ([f0b71bc](https://jokefunny/JackTheMico/hackastro/commits/f0b71bc))
+- 📝 docs(basic): update readme; add @iconify-json/ri ([f4f27f5](https://jokefunny/JackTheMico/hackastro/commits/f4f27f5))
 - Initial commit from Astro ([9dfecd5](https://jokefunny/JackTheMico/hackastro/commits/9dfecd5))
