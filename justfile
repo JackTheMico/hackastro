@@ -12,6 +12,9 @@ alias p := preview
 dev:
   pnpm dev
 
+astro args:
+  pnpm run astro {{args}}
+
 build: check
   pnpm run build
 

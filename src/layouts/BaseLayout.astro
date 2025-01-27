@@ -4,7 +4,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Navbar from "../components/Navbar.astro";
 import TagCard from "../components/TagCard.astro";
 import { SITE_TAB, SITE_TITLE, SITE_DESCRIPTION } from "../consts";
-const { title, image } = Astro.props;
+const { title, image, description, seoType } = Astro.props;
 import Footer from "../components/Footer.astro";
 import TocCard from "../components/TocCard.astro";
 import ToolCard from "../components/ToolCard.astro";
@@ -15,7 +15,12 @@ import ToolCard from "../components/ToolCard.astro";
   <head>
     <meta charset="UTF-8" />
     <title>{`${title} - ${SITE_TAB}`}</title>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} image={image} />
+    <BaseHead
+      title={SITE_TITLE}
+      description={description ? description : SITE_DESCRIPTION}
+      image={image}
+      seoType={seoType}
+    />
   </head>
   <body>
     <Navbar title={SITE_TITLE} />

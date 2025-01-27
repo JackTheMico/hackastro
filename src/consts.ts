@@ -1,7 +1,7 @@
 // Site settings
 export const SITE_TAB = "Hackastro";
 export const SITE_TITLE = "Hackastro⌨️";
-export const SITE_DESCRIPTION = "A blog template";
+export const SITE_DESCRIPTION = "A blog template based on Frosti and Astro";
 export const DATE_FORMAT = "ddd MMM DD YYYY";
 
 // Theme settings
@@ -26,6 +26,7 @@ export const EACH_PAGE_SIZE = 6;
 export const USER_SITE = "https://frosti.saroprock.com";
 export const USER_NAME = "Jack Wenyoung";
 export const USER_AVATAR = "/profile.webp";
+export const USER_TWITTER = "JokerDFunny";
 
 // Server and transition settings
 export const SERVER_URL = "https://demo.saroprock.com";

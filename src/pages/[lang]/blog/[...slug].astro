@@ -22,7 +22,12 @@ const pubDate = blog.data.pubDate.toLocaleString(lang);
 const { Content, remarkPluginFrontmatter } = await blog.render();
 ---
 
-<BaseLayout>
+<BaseLayout
+  title={blog.data.title}
+  image={blog.data.image}
+  description={blog.data.description}
+  seoType="article"
+>
   <BaseCard
     title={blog.data.title}
     author={blog.data.author}
