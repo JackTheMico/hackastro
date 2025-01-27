@@ -1,4 +1,6 @@
-## <small>0.0.2 (2025-01-26)</small>
+## <small>0.0.1 (2025-01-27)</small>
+
+## <small>0.0.3 (2025-01-27)</small>
 
 - ✨ feat: add husky, commitlint, etc ([d97e9cd](https://jokefunny/JackTheMico/hackastro/commits/d97e9cd))
 - ✨ feat(basic): add basic files and packages ([f4ab9a2](https://jokefunny/JackTheMico/hackastro/commits/f4ab9a2))
@@ -19,4 +21,6 @@
 - 🐛 fix(prettier): fix the prettier format mdx files issue ([64b4c69](https://jokefunny/JackTheMico/hackastro/commits/64b4c69))
 - 📄 license(license): add GNU 3.0 license ([f0b71bc](https://jokefunny/JackTheMico/hackastro/commits/f0b71bc))
 - 📝 docs(basic): update readme; add @iconify-json/ri ([f4f27f5](https://jokefunny/JackTheMico/hackastro/commits/f4f27f5))
+- 📝 docs(changelog): update changelog ([b7c1167](https://jokefunny/JackTheMico/hackastro/commits/b7c1167))
+- 📝 docs(seo): add astro-seo;update readme ([ec14657](https://jokefunny/JackTheMico/hackastro/commits/ec14657))
 - Initial commit from Astro ([9dfecd5](https://jokefunny/JackTheMico/hackastro/commits/9dfecd5))

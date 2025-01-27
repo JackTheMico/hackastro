@@ -129,5 +129,9 @@ export default defineConfig({
     }),
     pagefind(),
   ],
-  adapter: vercel(),
+  adapter: vercel({
+    webAnalytics: {
+      enabled: true,
+    }
+  }),
 });
